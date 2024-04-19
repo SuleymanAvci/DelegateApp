@@ -13,15 +13,27 @@ namespace DelegateApp.RequestCreators
         protected string MakeRequest()
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+            client.BaseAddress = new Uri(GetBaseAddress());
 
             var httpRes = client.GetAsync("posts").GetAwaiter().GetResult();
 
+            var msg = new HttpRequestMessage();
+            client.Send(msg);
             httpRes.EnsureSuccessStatusCode();
 
             var resultContent = httpRes.Content.ReadAsStringAsync().GetAwaiter().GetResult();
 
             return resultContent;
+        }
+
+        protected virtual string GetBaseAddress()
+        {
+            return "";
+        }
+
+        protected virtual string GetUrlPath()
+        {
+            return "";
         }
     }
 }
