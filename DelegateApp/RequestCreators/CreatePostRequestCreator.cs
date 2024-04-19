@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace DelegateApp.RequestCreators
 {
-    public class GetPostRequestCreator: BaseRequestCreator
+    public class CreatePostRequestCreator:BaseRequestCreator
     {
-
-        public List<PostModel> GetPost()
+        public PostModel CreatePost(PostModel model)
         {
             var responseContent = base.MakeRequest();
-            return JsonSerializer.Deserialize<List<PostModel>>(responseContent);
+            return JsonSerializer.Deserialize<PostModel>(responseContent); 
         }
 
     }
