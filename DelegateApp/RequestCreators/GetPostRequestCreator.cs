@@ -17,5 +17,20 @@ namespace DelegateApp.RequestCreators
             return JsonSerializer.Deserialize<List<PostModel>>(responseContent);
         }
 
+        protected override string GetBaseAddress()
+        {
+            return "https://jsonplaceholder.typicode.com/";
+        }
+
+        protected override HttpMethod GetHttpMethod()
+        {
+            return HttpMethod.Get;
+        }
+
+        protected override string GetUrlPath()
+        {
+            return "posts";
+        }
+
     }
 }

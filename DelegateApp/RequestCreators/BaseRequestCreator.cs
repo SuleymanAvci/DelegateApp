@@ -13,12 +13,18 @@ namespace DelegateApp.RequestCreators
         protected string MakeRequest()
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(GetBaseAddress());
 
-            var httpRes = client.GetAsync("posts").GetAwaiter().GetResult();
-
-            var msg = new HttpRequestMessage();
-            client.Send(msg);
+            var msg = new HttpRequestMessage
+            {
+                Method = GetHttpMethod(),
+                RequestUri = new Uri(GetBaseAddress() + GetUrlPath()),
+      
+                
+            };
+            var bodyContent = GetBodyObject();
+            if (bodyContent != null)
+                msg.Content = new StringContent(JsonSerializer.Serialize(bodyContent));
+            var httpRes=client.Send(msg);
             httpRes.EnsureSuccessStatusCode();
 
             var resultContent = httpRes.Content.ReadAsStringAsync().GetAwaiter().GetResult();
@@ -35,5 +41,15 @@ namespace DelegateApp.RequestCreators
         {
             return "";
         }
+        protected virtual HttpMethod GetHttpMethod()
+        {
+            return HttpMethod.Get;
+        }
+
+        protected virtual object GetBodyObject() 
+        {
+            return default;
+        }
+
     }
 }
