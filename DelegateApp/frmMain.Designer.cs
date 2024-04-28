@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -50,12 +51,24 @@
             button2.TabIndex = 1;
             button2.Text = "POST Method";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(154, 216);
+            button3.Name = "button3";
+            button3.Size = new Size(122, 40);
+            button3.TabIndex = 2;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(583, 294);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "frmMain";
@@ -67,5 +80,6 @@
 
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

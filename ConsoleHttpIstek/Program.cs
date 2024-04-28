@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace DelegateApp;
+PostDto dto = new PostDto()
+{
+    userId = 55,
+    title = "test",
+    body = "testBody"
+};
 
-//PostDto dto = new PostDto()
-//{
-//    userId = 55,
-//    title = "test",
-//    body = "testBody"
-//};
+HttpClient client = new HttpClient();
+client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+var httpRes  =await client.GetAsync("posts");
+var content=await httpRes.Content.ReadAsStringAsync();
+var liste=JsonConvert.DeserializeObject<List<Dto>>(content);
+
+var Lis =liste.Where(x => x.title.EndsWith("as"));
+Console.WriteLine(Lis.Count());
+
+foreach (var l in Lis)
+{
+    Console.WriteLine(l.title);
+}
+
 
 //HttpClient client = new HttpClient();
 //var endpoint = new Uri("https://jsonplaceholder.typicode.com/posts");
@@ -25,9 +35,11 @@ namespace DelegateApp;
 
 
 
+//using Newtonsoft.Json;
+
 //HttpClient client = new HttpClient();
-//var endpoint = new Uri("https://jsonplaceholder.typicode.com/posts");
-//var result = await client.GetAsync(endpoint);
+//client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+//var result = await client.GetAsync("posts");
 //var json = await result.Content.ReadAsStringAsync();
 //var postList = JsonConvert.DeserializeObject<List<Dto>>(json);
 //Console.WriteLine(json);

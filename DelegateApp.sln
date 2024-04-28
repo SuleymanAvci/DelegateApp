@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateApp", "DelegateApp\DelegateApp.csproj", "{591A9F9C-B51A-43CF-804A-430283D9866A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegateApp", "DelegateApp\DelegateApp.csproj", "{591A9F9C-B51A-43CF-804A-430283D9866A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHttpIstek", "ConsoleHttpIstek\ConsoleHttpIstek.csproj", "{DC967259-F807-4138-B2BD-E36B2A3FB5B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{591A9F9C-B51A-43CF-804A-430283D9866A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{591A9F9C-B51A-43CF-804A-430283D9866A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{591A9F9C-B51A-43CF-804A-430283D9866A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC967259-F807-4138-B2BD-E36B2A3FB5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC967259-F807-4138-B2BD-E36B2A3FB5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC967259-F807-4138-B2BD-E36B2A3FB5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC967259-F807-4138-B2BD-E36B2A3FB5B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
